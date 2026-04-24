@@ -24,8 +24,8 @@ export default function Home() {
         <h1 style={{ margin: 0, fontSize: 24 }}>Browserless MCP Agent</h1>
         <p style={{ opacity: 0.7, marginTop: 6, fontSize: 14 }}>
           Connected to <code>mcp.browserless.io</code>. Try:{' '}
-          <em>&quot;screenshot example.com&quot;</em> or{' '}
-          <em>&quot;scrape the pricing page at stripe.com&quot;</em>.
+          <em>&quot;search good python tutorials&quot;</em> or{' '}
+          <em>&quot;go to all recipes and find a good for eggplant ratatouille&quot;</em>.
         </p>
       </header>
 

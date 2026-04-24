@@ -25,9 +25,9 @@ npm run dev
 
 Open http://localhost:3000 and try:
 
-- `screenshot example.com`
-- `scrape the pricing from stripe.com/pricing`
-- `search the web for "best headless browser 2026" and summarize the top 3 results`
+> `search good python tutorials`
+> `go to all recipes and find a good for eggplant ratatouille`
+> `extract all links from browserless.io`
 
 ## How it works
 
@@ -44,7 +44,6 @@ Open http://localhost:3000 and try:
 | --- | --- | --- |
 | `BROWSERLESS_API_KEY` | yes | Sent as `Authorization: Bearer …` to the MCP server |
 | `OPENAI_API_KEY` | yes | Drives the agent loop. Replace with another provider in `route.ts` if you prefer |
-| `BROWSERLESS_MCP_URL` | no | Defaults to `https://mcp.browserless.io/mcp` |
 
 ## Customizing
 

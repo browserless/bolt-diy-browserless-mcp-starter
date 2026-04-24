@@ -5,7 +5,7 @@ import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-const MCP_URL = process.env.BROWSERLESS_MCP_URL ?? 'https://mcp.browserless.io/mcp';
+const MCP_URL = 'https://mcp.browserless.io/mcp';
 
 const SYSTEM_PROMPT = `You are a browser automation agent with access to Browserless MCP tools.
 Use the available tools to accomplish the user's task (screenshot, scrape, crawl, search, run
