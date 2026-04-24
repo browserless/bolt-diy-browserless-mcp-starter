@@ -1,0 +1,12 @@
+This project is an agent wired to the Browserless MCP server at https://mcp.browserless.io/mcp.
+
+Key facts for writing code in this project:
+
+- The MCP client is created server-side in `app/api/chat/route.ts` using the Vercel AI SDK's `experimental_createMCPClient` + `@modelcontextprotocol/sdk`'s `StreamableHTTPClientTransport`. Do NOT move MCP calls to the client — the bearer token must stay on the server.
+- Authenticate to Browserless with `Authorization: Bearer ${BROWSERLESS_API_KEY}`. The key is a plain API key from https://account.browserless.io (not a JWT, not OAuth).
+- Browserless MCP exposes tools such as `browserless_agent`, `browserless_screenshot`, `browserless_smartscraper`, `browserless_crawl`, `browserless_search`, `browserless_map`, `browserless_function`, `browserless_download`, `browserless_export`, `browserless_performance`. Discover them dynamically via `mcpClient.tools()` rather than hard-coding.
+- The chat UI uses `@ai-sdk/react`'s `useChat` hook. Render `message.parts` (text + tool-invocation) — do not just show `message.content`.
+- Keep the UI minimal and clean. Dark theme by default.
+- Never commit `.env.local`. The env template is `.env.example`.
+- When adding new dependencies use `npm install <pkg>`; do not edit `package.json` by hand for deps.
+- Prefer the Vercel AI SDK's tool-loop (`streamText({ tools, maxSteps })`) over manually invoking MCP tools — the LLM should decide.
