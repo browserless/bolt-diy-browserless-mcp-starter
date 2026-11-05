@@ -11,6 +11,21 @@ A minimal Next.js app that turns the [Browserless MCP server](https://mcp.browse
 
 ## Prerequisites
 
+For native local development, use Node.js **26.13.0** with
+`nvm install 26.13.0 && nvm use 26.13.0`. On Linux, the official binary
+requires `libatomic.so.1` (`libatomic1` on Debian/Ubuntu).
+
+For Bolt/StackBlitz WebContainers, keep the platform's supported runtime.
+As of November 2026, its default is Node.js 24 and Node.js 26 support is
+[still planned](https://github.com/stackblitz/webcontainer-core/issues/560).
+There is deliberately no `.nvmrc`: WebContainers and Netlify read that file,
+so a native-local pin could also change their runtime selection.
+
+Deployment runtimes must be checked separately. Vercel supports **26.x** but
+manages minor/patch updates, so it cannot guarantee exactly 26.13.0. Netlify
+selects build Node separately from its AWS Lambda-backed Functions runtime;
+confirm both supported versions before changing a site's settings.
+
 1. A Browserless API key — grab one at [account.browserless.io](https://account.browserless.io).
 2. An OpenAI API key — [platform.openai.com/api-keys](https://platform.openai.com/api-keys). (Swap in any provider supported by the Vercel AI SDK by editing `app/api/chat/route.ts`.)
 
